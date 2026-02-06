@@ -1,9 +1,18 @@
 import random
+import os
 from tkinter import *
 from tkinter import messagebox
 
 THEME_COLOR = "#375362"
 FONT = ("Courier", 18, "bold")
+
+# Get the directory where this script is located
+SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))
+
+
+def get_image_path(filename):
+    """Get the full path to an image file."""
+    return os.path.join(SCRIPT_DIR, filename)
 
 
 class GameUI:
@@ -41,7 +50,7 @@ class GameUI:
         self.computerscore.grid(row=0, column=3)
 
         # Rock Button:
-        self.img_rock = PhotoImage(file="game/Rock-Paper-Scissor/Rock.png")
+        self.img_rock = PhotoImage(file=get_image_path("Rock.png"))
         self.rock_button = Button(
             image=self.img_rock,
             bg=THEME_COLOR,
@@ -52,7 +61,7 @@ class GameUI:
         self.rock_button.config(bg=THEME_COLOR, highlightthickness=0)
 
         # Paper Button:
-        self.img_paper = PhotoImage(file="game/Rock-Paper-Scissor/Paper.png")
+        self.img_paper = PhotoImage(file=get_image_path("Paper.png"))
         self.paper_button = Button(
             image=self.img_paper,
             bg=THEME_COLOR,
@@ -63,7 +72,7 @@ class GameUI:
         self.paper_button.config(bg=THEME_COLOR, highlightthickness=0)
 
         # Scissors Button:
-        self.img_scissor = PhotoImage(file="game/Rock-Paper-Scissor/Scissors.png")
+        self.img_scissor = PhotoImage(file=get_image_path("Scissors.png"))
         self.scissor_button = Button(
             image=self.img_scissor,
             bg=THEME_COLOR,
@@ -109,11 +118,9 @@ class GameUI:
         self.computer_canvas.grid(row=1, column=3, rowspan=3, padx=20)
 
         # Getting Random from Rock-Paper-Scissors:
-        self.img_Big_Rock = PhotoImage(file="game/Rock-Paper-Scissor/Big_Rock.png")
-        self.img_Big_Paper = PhotoImage(file="game/Rock-Paper-Scissor/Big_Paper.png")
-        self.img_Big_Scissor = PhotoImage(
-            file="game/Rock-Paper-Scissor/Big_Scissors.png"
-        )
+        self.img_Big_Rock = PhotoImage(file=get_image_path("Big_Rock.png"))
+        self.img_Big_Paper = PhotoImage(file=get_image_path("Big_Paper.png"))
+        self.img_Big_Scissor = PhotoImage(file=get_image_path("Big_Scissors.png"))
 
         self.computer_image = [
             self.img_Big_Rock,
@@ -210,7 +217,7 @@ class GameUI:
             self.computerscore["text"] = f"Score :: {self.computer_score}"
 
             # Reset canvases:
-            self.img_grey = PhotoImage(file="game/Rock-Paper-Scissor/grey.png")
+            self.img_grey = PhotoImage(file=get_image_path("grey.png"))
             self.user_canvas.itemconfig(self.user, image=self.img_grey)
             self.computer_canvas.itemconfig(self.computer, image=self.img_grey)
 
@@ -222,3 +229,4 @@ class GameUI:
 
 
 GameUI()
+
