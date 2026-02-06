@@ -665,7 +665,7 @@ class StartScreen:
         self.canvas.create_text(
             self.width // 2,
             self.height - 20,
-            text="© 2025 Pac-Man Game",
+            text="Pac-Man Game",
             fill="#888888",
             font=("Arial", 10),
         )
