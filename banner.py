@@ -36,6 +36,20 @@ def run_game(game_folder):
     except Exception as e:
         print(f"Error running game: {e}")
 
+# Available games mapping: display name -> folder name
+games = {
+    "BlackJack": "BlackJack",
+    "Breakout": "Breakout",
+    "Hangman": "Hangman",
+    "KBC": "KBC",
+    "Pacman": "Pacman",
+    "PingPong": "PingPong",
+    "RockPaperScissor": "RockPaperScissor",
+    "SnakeGame": "SnakeGame",
+    "TurtleCrossing": "TurtleCrossing"
+}
+
+
 def main():
     blue_menu_style = Style([
         ('qmark', 'fg:#673ab7 bold'),
@@ -49,18 +63,6 @@ def main():
         ('text', ''),
         ('disabled', 'fg:#858585 italic')
     ])
-
-    games = {
-        "BlackJack": "BlackJack",
-        "Breakout": "Breakout",
-        "Hangman": "Hangman",
-        "KBC": "KBC",
-        "Pacman": "Pacman",
-        "PingPong": "PingPong",
-        "RockPaperScissor": "RockPaperScissor",
-        "SnakeGame": "SnakeGame",
-        "TurtleCrossing": "TurtleCrossing"
-    }
 
     while True:
         os.system('cls' if os.name == 'nt' else 'clear')
